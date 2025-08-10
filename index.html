@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MASTER HACKER ☠️💀</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <header class="app-header">
+    <div class="left">
+      <div class="logo">MASTER HACKER <span class="skull">☠️💀</span></div>
+      <div class="tag">Real-time Validation Tool</div>
+    </div>
+    <div class="right small-note">Theme: Red • Black • Yellow</div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <button data-view="phone" class="side-btn active">📱 Phone</button>
+      <button data-view="email" class="side-btn">✉️ Email</button>
+      <button data-view="emailrep" class="side-btn">🛡️ Email Rep</button>
+      <button data-view="vat" class="side-btn">🏷️ VAT</button>
+      <button data-view="iban" class="side-btn">🏦 IBAN</button>
+    </aside>
+
+    <section class="panel">
+      <div class="terminal-card">
+        <div id="terminal-header" class="terminal-header">
+          <div class="title">MASTER HACKER ☠️💀</div>
+          <div class="subtitle">Enter value and press <span class="scan-pill">SCAN</span></div>
+        </div>
+
+        <div id="terminal-output" class="terminal-output" role="log" aria-live="polite">
+          <div class="welcome">▶ Welcome, MASTER HACKER. Ready.</div>
+        </div>
+
+        <div class="terminal-controls">
+          <input id="input-field" autocomplete="off" inputmode="text" placeholder="+92300..." />
+          <button id="run-btn" class="run-btn">SCAN</button>
+        </div>
+
+        <div id="loader" class="loader hidden">
+          <div class="loader-bar"></div>
+          <div class="loader-text">Scanning<span id="dots">...</span></div>
+        </div>
+
+      </div>
+      <div class="footer-note">Made for: <strong>MASTER HACKER☠️💀</strong> — Powered by AbstractAPI</div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+        </html>
