@@ -1,86 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Email Validator - MASTER TOOL</title>
-<style>
-    body {
-        background-color: #000;
-        color: #00ff00;
-        font-family: "Courier New", monospace;
-        text-align: center;
-        padding: 30px;
-    }
-    h1 {
-        font-size: 2rem;
-        text-shadow: 0 0 10px #00ff00;
-    }
-    input {
-        padding: 10px;
-        font-size: 1rem;
-        border: 2px solid #00ff00;
-        background: #000;
-        color: #00ff00;
-        outline: none;
-        margin-top: 20px;
-        width: 80%;
-        max-width: 300px;
-    }
-    button {
-        padding: 10px 20px;
-        margin-top: 20px;
-        font-size: 1rem;
-        border: none;
-        background: #00ff00;
-        color: #000;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-    button:hover {
-        background: #00cc00;
-    }
-    #result {
-        margin-top: 30px;
-        font-size: 1.1rem;
-        text-shadow: 0 0 5px #00ff00;
-    }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MASTER HACKER ☠️</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
 
-<h1>🔍 MASTER TOOL - Email Validator</h1>
-<input type="email" id="email" placeholder="Enter Email Address">
-<br>
-<button onclick="validateEmail()">CHECK</button>
+  <header class="app-header">
+    <div class="logo">MASTER HACKER <span class="skull">☠️</span></div>
+    <div class="tag">Live Validation Panel</div>
+  </header>
 
-<div id="result"></div>
+  <main class="main">
+    <nav class="left-menu" role="navigation" aria-label="tools">
+      <button data-view="phone" class="menu-btn active">📱 Phone</button>
+      <button data-view="email" class="menu-btn">✉️ Email</button>
+      <button data-view="emailrep" class="menu-btn">🛡️ Email Rep</button>
+      <button data-view="vat" class="menu-btn">🏷️ VAT</button>
+      <button data-view="iban" class="menu-btn">🏦 IBAN</button>
+    </nav>
 
-<script>
-async function validateEmail() {
-    const email = document.getElementById("email").value.trim();
-    if (!email) {
-        document.getElementById("result").innerHTML = "⚠️ Please enter an email!";
-        return;
-    }
+    <section class="panel">
+      <div class="card">
+        <div class="card-head">
+          <div class="title">MASTER HACKER ☠️</div>
+          <div class="subtitle">Enter value and press <span class="pill">SCAN</span></div>
+        </div>
 
-    document.getElementById("result").innerHTML = "⏳ Checking...";
+        <div id="output" class="output" role="log" aria-live="polite">
+          <div class="muted">▶ Ready. Select a tool and enter value.</div>
+        </div>
 
-    try {
-        const response = await fetch(`/api/validate?email=${encodeURIComponent(email)}`);
-        const data = await response.json();
+        <div class="controls">
+          <input id="input" placeholder="+92300..." inputmode="text" autocomplete="off" />
+          <button id="scan" class="scan-btn">SCAN</button>
+        </div>
 
-        if (data.is_valid_format && data.is_valid_format.value) {
-            document.getElementById("result").innerHTML = `✅ Valid Email<br>Format: ${data.is_valid_format.value}`;
-        } else {
-            document.getElementById("result").innerHTML = `❌ Invalid Email`;
-        }
-    } catch (error) {
-        document.getElementById("result").innerHTML = "⚠️ Error checking email.";
-    }
-}
-</script>
+        <div id="loader" class="loader hidden">
+          <div class="bar"></div>
+          <div class="text">Scanning<span id="dots">...</span></div>
+        </div>
+      </div>
 
+      <div class="note">Made for: <strong>MASTER HACKER</strong></div>
+    </section>
+  </main>
+
+  <script src="/js/app.js"></script>
 </body>
 </html>
