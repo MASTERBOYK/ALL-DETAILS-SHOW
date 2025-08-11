@@ -7,12 +7,8 @@ export default async function handler(req, res) {
     const url = `https://phonevalidation.abstractapi.com/v1/?api_key=${key}&phone=${encodeURIComponent(q)}`;
     const r = await fetch(url);
     if (!r.ok) {
-      const t = await r.text();
-      return res.status(r.status).send(t);
+      const t = await r.text(); return res.status(r.status).send(t);
     }
-    const data = await r.json();
-    return res.status(200).json(data);
-  } catch (err) {
-    return res.status(500).json({ error: err.message || String(err) });
-  }
+    const data = await r.json(); return res.status(200).json(data);
+  } catch (err) { return res.status(500).json({ error: err.message || String(err) }); }
 }
